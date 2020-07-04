@@ -4,9 +4,9 @@ WORKDIR /app
 
 COPY requirements.txt requirements.txt
 EXPOSE 5000
-ENV http_proxy=http://web-proxy.houston.hpecorp.net:8080
+ENV <proxy if any>
 RUN apk add --no-cache --virtual .build-deps gcc \
-    && pip3 install --proxy http://web-proxy.houston.hpecorp.net:8080 -r requirements.txt \
+    && pip3 install --proxy <proxy if any> -r requirements.txt \
     && apk del .build-deps
 
 COPY . .
